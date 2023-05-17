@@ -4,7 +4,7 @@ Simple npm package to configure your convox racks parameters.
 
 ## Usage
 
-First, you need to install this library as dependency in your project - `npm install --save-dev @schibsted/configure-convox-racks`
+First, you need to install this library as dependency in your project:<br /> `npm install --save-dev @schibsted/configure-convox-racks`
 
 Create config file (name it as you want i.e. `convox-config.js`). Below is an example of the structure that this file should have:
 
