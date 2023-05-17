@@ -1,0 +1,19 @@
+configure-convox-racks
+Copyright 2023 Schibsted
+
+Dependencies used in this application:
+
+- lodash 
+Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
+
+- yargs
+Copyright 2010 James Halliday (mail@substack.net); Modified work Copyright 2014 Contributors (ben@npmjs.com) <https://opensource.org/license/mit/>
+
+- variable-diff
+Copyright (c) 2016 Taylor Hakes <https://opensource.org/license/mit/>
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
