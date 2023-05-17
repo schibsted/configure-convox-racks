@@ -27,6 +27,8 @@ module.exports = [
 ];
 ```
 
+In this example, there is a configuration for single rack. However, you can pass as many racks here as you want, each needs to be an object in the array, that has the structure described above.
+
 Now all you have to do is type in terminal:
 - `npx @schibsted/configure-convox-racks plan -c convox-config.js` to see if there are some changes 
 - `npx @schibsted/configure-convox-racks apply -c convox-config.js` to apply those changes
