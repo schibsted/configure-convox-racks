@@ -43,5 +43,3 @@ const config = loadConfig(params.config);
         process.exit(1);
     }
 })();
-
-
