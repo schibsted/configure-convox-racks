@@ -1,0 +1,24 @@
+{
+  "name": "@schibsted/configure-convox-racks",
+  "version": "1.0.0",
+  "description": "Simple npm package to configure your convox racks parameters.",
+  "bin": "index.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "convox",
+    "racks",
+    "config",
+    "configure"
+  ],
+  "author": "Michał Dutka <mike.dutka@o2.pl>",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "variable-diff": "^2.0.2",
+    "yargs": "^17.7.2"
+  }
+}
