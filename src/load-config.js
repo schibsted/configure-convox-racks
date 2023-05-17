@@ -8,10 +8,13 @@ const requiredOptions = [
 
 module.exports = (configFilePath) => {
     const config = configFilePath ? require(`${process.cwd()}/${configFilePath}`) : {};
+    if (!lodash.isArray(config)) {
+        throw new Error(`Config is required in to be an array`);
+    }
     config.map((rack) => {
         requiredOptions.map(option => {
             if (!lodash.get(rack, option)) {
-                throw new Error(`${option} is required in config file`);
+                throw new Error(`${option} is required in the object ${JSON.stringify(rack)}`);
             }
         });
     });

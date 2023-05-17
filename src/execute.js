@@ -55,39 +55,37 @@ const setRackParams = (rack, changeset) => {
 };
 
 const execute = (arg) => (config) => {
-    if (arg == 'plan' || arg == 'apply') {
-        const promises = config.map(async (rack) => {
-            try {
-                const currentParams = await fetchParams(rack);
-                const changeset = diffParams(rack.config, currentParams);
+    const promises = config.map(async (rack) => {
+        try {
+            const currentParams = await fetchParams(rack);
+            const changeset = diffParams(rack.config, currentParams);
 
-                if (lodash.isEmpty(changeset)) {
-                    console.log(`Rack: ${rack.name} - no changes detected`);
-                    return;
-                }
-                console.log(`Rack: ${rack.name} - changes detected `);
+            if (lodash.isEmpty(changeset)) {
+                console.log(`Rack: ${rack.name} - no changes detected`);
+                return;
+            }
+            console.log(`Rack: ${rack.name} - changes detected `);
 
-                var result = diff(
-                    Object.keys(changeset).map(key => `${key}: ${currentParams[key]}`),
-                    Object.keys(changeset).map(key => `${key}: ${changeset[key]}`)
-                );
-                console.log(result.text);
+            var result = diff(
+                Object.keys(changeset).map(key => `${key}: ${currentParams[key]}`),
+                Object.keys(changeset).map(key => `${key}: ${changeset[key]}`)
+            );
+            console.log(result.text);
 
-                if (arg == 'apply') {
-                    await setRackParams(rack, changeset);
-                }
-            } catch (err) {
-                console.error(err);
-                throw err;
-            };
-        })
+            if (arg == 'apply') {
+                await setRackParams(rack, changeset);
+            }
+        } catch (err) {
+            console.error(err);
+            throw err;
+        };
+    })
 
-        Promise.allSettled(promises).then((results) => results.forEach((result) => result.status == 'rejected' && process.exit(1)));
-    }
+    Promise.allSettled(promises).then((results) => results.forEach((result) => result.status == 'rejected' && process.exit(1)));
 };
 
-const doPlan = (config) => execute('plan')(config);
-const doApply = (config) => execute('apply')(config);
+const doPlan = execute();
+const doApply = execute('apply');
 
 module.exports = {
     doPlan, doApply
