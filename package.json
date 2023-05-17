@@ -8,12 +8,20 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schibsted/configure-convox-racks.git"
+  },
   "keywords": [
     "convox",
     "racks",
     "config",
     "configure"
   ],
+  "bugs": {
+    "url": "https://github.com/schibsted/configure-convox-racks/issues"
+  },
+  "homepage": "https://github.com/schibsted/configure-convox-racks#readme",
   "author": "Michał Dutka <mike.dutka@o2.pl>",
   "license": "Apache 2.0",
   "dependencies": {

@@ -29,12 +29,19 @@ if (!['plan', 'apply'].includes(command)) {
 
 const config = loadConfig(params.config);
 
-if (command === 'plan') {
-    doPlan(config);
-}
+(async () => {
+    try {
+        if (command === 'plan') {
+            return await doPlan(config);
+        }
 
-if (command === 'apply') {
-    doApply(config);
-}
+        if (command === 'apply') {
+            return await doApply(config);
+        }
+    } catch (err) {
+        console.error(err);
+        process.exit(1);
+    }
+})();
 
 
